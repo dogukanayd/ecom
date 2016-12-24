@@ -5,7 +5,7 @@
     <div class="container">
 
       <header>
-            <h1 class="text-center">Login</h1>
+            <h1 class="text-center">Login Page</h1>
           <h2 class="text-center bg-danger"><?php display_message(); ?> </h2>
         <div class="col-sm-4 col-sm-offset-5">         
             <form class="" action="" method="post" enctype="multipart/form-data">
