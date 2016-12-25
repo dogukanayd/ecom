@@ -94,7 +94,7 @@ function get_products(){
 
                                 <p>{$row['short_desc']}</p>
 
-                                <a class="btn btn-primary" target="_blank" href="item.php?id={$row['product_id']}" >Add to cart</a>
+                                <a class="btn btn-primary" target="_blank" href="cart.php?add={$row['product_id']}" >Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -170,7 +170,7 @@ function login_user(){
 
 function send_message(){
     if(isset($_POST['submit'])){
-        $to = "daydogdu93@gmail.com";
+        $to = "mail@mail.com";
         $from_name =  $_POST['name'];
         $subject =  $_POST['subject'];
         $email =  $_POST['email'];
