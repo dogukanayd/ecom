@@ -77,7 +77,7 @@ DELIMETER;
                     echo $product;
                }
                 echo $_SESSION['item_total'] = $total += $sub;
-                echo $_SESSION['item_quantity'] += $item_quantity;
+                echo $_SESSION['item_quantity'] = $item_quantity; //$value
         }
 
 
