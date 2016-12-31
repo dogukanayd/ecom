@@ -1,5 +1,9 @@
 <?php require_once ("../../resources/config.php"); ?>
 <?php include(TEMPLATE_BACK . "/header.php"); ?>
+<?php
+if(!isset($_SESSION['username']))
+redirect("../../public");
+?>
 
         <div id="page-wrapper">
 

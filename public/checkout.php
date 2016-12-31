@@ -1,5 +1,4 @@
 <?php require_once("../resources/config.php"); ?>
-<?php require_once("cart.php"); ?>
 <?php include(TEMPLATE_FRONT . DS  ."header.php") ?>
 
     <!-- Page Content -->
@@ -64,7 +63,7 @@
 </tr>
 
 
-</tbody>
+
 
 </table>
 
