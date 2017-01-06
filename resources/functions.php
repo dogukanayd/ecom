@@ -219,3 +219,33 @@ echo $orders;
     }
 }
 
+/**************** Admin Products ***************** */
+function get_products_in_admin(){
+
+    $query = query("SELECT * FROM products");
+    confirm($query);
+
+    while($row = fetch_array($query)){
+
+        $product = <<<DELIMETER
+
+ <tr>
+            <td>{$row['product_id']}</td>
+            <td>{$row['product_title']}<br>
+              <a href="index.php?edit_product&id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
+            </td>
+            <td></td>
+            <td>{$row['product_price']}</td>
+            <td>{$row['product_quantity']}</td>
+             <td><a href="../../resources/templates/back/delete_product.php?id={$row['product_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+        </tr>
+
+DELIMETER;
+
+        echo $product;
+
+    }
+
+}
+
+
