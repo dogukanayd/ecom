@@ -247,5 +247,25 @@ DELIMETER;
     }
 
 }
+/******************** Add Products in Admin *********************/
+
+function add_product(){
+    if(isset($_POST['publish'])){
+       $product_title             =  escape_string($_POST['product_title']);
+       $product_category_id       =  escape_string($_POST['product_category_id']);
+       $product_price             =  escape_string($_POST['product_price']);
+       $product_quantity          =  escape_string($_POST['product_quantity']);
+       $product_description       =  escape_string($_POST['product_description']);
+       $short_desc                =  escape_string($_POST['short_desc']);
+       $product_image             =  escape_string($_FILES['file']['name']);
+       $image_temp_location       =  escape_string($_FILES['file']['tmp_name']);
+
+
+
+    }
+
+
+
+}
 
 
