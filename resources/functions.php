@@ -367,5 +367,51 @@ function update_product(){
     }
 }
 
+/*********** Categories in Admin *****************/
+
+function show_categories_in_admin(){
+
+    $category_query = query("SELECT * FROM categories");
+    confirm($category_query);
+
+    while($row = fetch_array($category_query)){
+        $cat_id = $row['cat_id'];
+        $cat_title = $row['cat_title'];
+
+        $category = <<<DELIMETER
+        <tr>
+            <td>{$cat_id}</td>
+            <td>{$cat_title}</td>
+            <td><a href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+        </tr>
+
+
+
+DELIMETER;
+        echo $category;
+
+
+    }
+
+}
+
+function add_category(){
+
+    if(isset($_POST['add_category'])){
+
+        $cat_title = escape_string($_POST['cat_title']);
+        if(empty($cat_title) || $cat_title == " "){
+            set_message("THIS CANNOT BE EMPTY");
+        }else {
+            $insert_cat = query("INSERT INTO categories(cat_title) VALUES ('{$cat_title}')");
+            confirm($insert_cat);
+            set_message("CATEGORY CREATED");
+
+        }
+
+    }
+}
+
+
 
 
