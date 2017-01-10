@@ -412,6 +412,56 @@ function add_category(){
     }
 }
 
+/***************** admin users *****************/
 
+
+function display_users(){
+
+    $category_query = query("SELECT * FROM users");
+    confirm($category_query);
+
+    while($row = fetch_array($category_query)){
+        $user_id    = $row['user_id'];
+        $username   = $row['username'];
+        $email      = $row['email'];
+        //$password   = $row['password'];
+
+        $user = <<<DELIMETER
+        <tr>
+            <td>{$user_id}</td>
+            <td>{$username}</td>
+            <td>{$email}</td>
+            <td><a href="../../resources/templates/back/delete_user.php?id={$row['user_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+        </tr>
+
+
+
+DELIMETER;
+        echo $user;
+
+
+    }
+
+}
+
+function add_user(){
+    if(isset($_POST['add_user'])){
+
+      $username     =   escape_string($_POST['username']);
+      $email        =   escape_string($_POST['email']);
+      $password     =   escape_string($_POST['password']);
+      //$user_photo    =   escape_string($_FILES['file']['name']);
+      //$photo_temp    =   escape_string($_FILES['file']['tmp_name']);
+
+      //move_uploaded_file($photo_temp, UPLOAD_DIRECTORY . DS . $user_photo);
+
+      $query = query("INSERT INTO users(username, email, password) VALUES('{$username}', '{$email}', '{$password}')");
+      confirm($query);
+
+      set_message("USER CREATED");
+      redirect("index.php?users");
+
+    }
+}
 
 
