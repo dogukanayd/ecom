@@ -464,4 +464,33 @@ function add_user(){
     }
 }
 
+function get_reports(){
+
+    $query = query("SELECT * FROM reports");
+    confirm($query);
+
+    while($row = fetch_array($query)){
+
+
+
+        $reports = <<<DELIMETER
+
+ <tr>
+            <td>{$row['report_id']}</td>
+            <td>{$row['product_id']}</td>
+            <td>{$row['order_id']}</td>
+            <td>{$row['product_price']}</td>
+            <td>{$row['product_title']}</td>
+            
+            
+             <td><a href="../../resources/templates/back/delete_reports.php?id={$row['report_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+        </tr>
+
+DELIMETER;
+
+        echo $reports;
+
+    }
+
+}
 

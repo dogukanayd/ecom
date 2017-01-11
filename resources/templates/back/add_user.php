@@ -14,20 +14,22 @@
 <form action="" method="post" enctype="multipart/form-data">
 
 
-<div class="col-md-8">
+<!--<div class="col-md-8">
+
+<div class="form-group">
+    <span  class="glyphicon glyphicon-user" aria-hidden="true"></span>
+</div>
 
 
 
 
 
-
-    
-    
 
 </div><!--Main Content-->
 
 
 <!-- SIDEBAR-->
+
 
 
 <aside id="admin_sidebar" class="col-md-4">

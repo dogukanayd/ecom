@@ -6,6 +6,9 @@
         <li class="active">
             <a href="index.php?orders"><i class="fa fa-fw fa-dashboard"></i> Orders</a>
         </li>
+        <li class="active">
+            <a href="index.php?reports"><i class="fa fa-fw fa-dashboard"></i> Reports</a>
+        </li>
         <li>
             <a href="index.php?products"><i class="fa fa-fw fa-bar-chart-o"></i> View Products</a>
         </li>
