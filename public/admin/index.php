@@ -43,6 +43,10 @@ redirect("../../public");
                  if(isset($_GET['reports'])){
                      include(TEMPLATE_BACK . "/reports.php");
                  }
+                 if(isset($_GET['slides'])){
+                     include(TEMPLATE_BACK . "/slides.php");
+                 }
+
 
 
 
