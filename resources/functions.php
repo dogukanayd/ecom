@@ -502,11 +502,17 @@ function add_slides(){
         $slide_image        = escape_string($_FILES['file']['name']);
         $slide_image_loc    = escape_string($_FILES['file']['tmp_name']);
 
-        if(empty($slide_title || empty($slide_image))){
+        if(empty($slide_title) || empty($slide_image)){
             echo "<p class='bg-danger'> This field cannot be empty  </p>";
 
         }else{
-            move_uploaded_file($slide_image_loc,UPLOAD_DIRECTORY . DS . $slide_image);
+            move_uploaded_file($slide_image_loc , UPLOAD_DIRECTORY . DS . $slide_image);
+
+
+            $query = query("INSERT INTO slides(slide_title, slide_image) VALUES('{$slide_title}','{$slide_image}')");
+            confirm($query);
+            set_message("Slide Added");
+            redirect("index.php?slides");
         }
 
 
@@ -514,8 +520,22 @@ function add_slides(){
 
 }
 
-function get_current_slide(){
+function get_current_slide_in_admin(){
+    $query = query("SELECT * FROM slides ORDER BY slide_id DESC LIMIT 1");
+    confirm($query);
 
+    while($row = fetch_array($query)){
+        $slide_image = display_image($row['slide_image']);
+
+        $slide_active_admin =  <<<DELIMETER
+
+                <img class="img-responsive" src="../../resources/{$slide_image}" alt="">
+          
+DELIMETER;
+        echo $slide_active_admin;
+
+
+    }
 }
 
 function get_active_slide(){
@@ -526,7 +546,7 @@ function get_active_slide(){
         $slide_image = display_image($row['slide_image']);
 
         $slide_active =  <<<DELIMETER
-<div class="item_active">
+<div class="item active">
                 <img class="slide-image" src="../resources/{$slide_image}" alt="">
             </div>
 DELIMETER;
@@ -557,6 +577,35 @@ DELIMETER;
 }
 
 function get_slide_thumbnails(){
+    $query = query("SELECT * FROM slides ORDER BY slide_id ASC ");
+    confirm($query);
+
+    while($row = fetch_array($query)){
+        $slide_image = display_image($row['slide_image']);
+
+        $slide_thumb_admin =  <<<DELIMETER
+<tr>
+     <div class="col-xs-6 col-md-6">
+       <td><img width='300' class="img-responsive slide_image" src="../../resources/{$slide_image}" alt=""></td>
+       
+       <td> <span class="centered">{$row['slide_title']}</span></td>
+       
+       <td>
+       <a href="../../resources/templates/back/delete_slide.php?id={$row['slide_id']}" class="btn btn-danger">
+       <span class="glyphicon glyphicon-remove">
+       </span>
+       </a>
+       </td>
+
+    </div>
+    </tr>
+    
+          
+DELIMETER;
+        echo $slide_thumb_admin;
+
+
+    }
 
 }
 

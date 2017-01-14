@@ -2,11 +2,12 @@
 
 <div class="row">
 
-    <h3 class="bg-success"></h3>
+    <h3 class="bg-success"><?php display_message();?></h3>
 
     <div class="col-xs-3">
 
         <form action="" method="post" enctype="multipart/form-data">
+            <?php add_slides(); ?>
 
             <div class="form-group">
 
@@ -16,13 +17,13 @@
 
             <div class="form-group">
                 <label for="title">Slide Title</label>
-                <input type="text" name="banner_title" class="form-control">
+                <input type="text" name="slide_title" class="form-control">
 
             </div>
 
             <div class="form-group">
 
-                <input type="submit" name="add_banner">
+                <input type="submit" name="add_slide">
 
             </div>
 
@@ -33,7 +34,8 @@
 
     <div class="col-xs-8">
 
-<img src="http://placehold.it/700x300" alt="">
+
+<?php get_current_slide_in_admin(); ?>
 
 
     </div>
@@ -45,6 +47,32 @@
 <h1>Slides Available</h1>
 
 <div class="row">
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Slide Picture</th>
+
+            <th>Slide Name</th>
+            <th></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <?php get_slide_thumbnails(); ?>
+
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table> <!--End of Table-->
+
 
 
 
