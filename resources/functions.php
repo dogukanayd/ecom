@@ -216,7 +216,7 @@ function display_orders(){
             <td>{$row['order_transaction']} </td>
             <td>{$row['order_currency']} </td>
             <td>{$row['order_status']} </td>
-            <td><a href="../../resources/templates/back/delete_order.php?id={$row['order_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+            <td><a href="../../resources/templates/back/delete_order.php?id={$row['order_id']}" class="btn btn-danger image_container"><span class="glyphicon glyphicon-remove"></span> </a></td>
         </tr>
 DELIMETER;
 
@@ -250,7 +250,7 @@ function get_products_in_admin(){
             <td>{$category}</td>
             <td>{$row['product_price']}</td>
             <td>{$row['product_quantity']}</td>
-             <td><a href="../../resources/templates/back/delete_product.php?id={$row['product_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+             <td><a href="../../resources/templates/back/delete_product.php?id={$row['product_id']}" class="btn btn-danger image_container"><span class="glyphicon glyphicon-remove"></span> </a></td>
         </tr>
 
 DELIMETER;
@@ -382,7 +382,7 @@ function show_categories_in_admin(){
         <tr>
             <td>{$cat_id}</td>
             <td>{$cat_title}</td>
-            <td><a href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+            <td><a href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}" class="btn btn-danger image_container"><span class="glyphicon glyphicon-remove"></span> </a></td>
         </tr>
 
 
@@ -431,7 +431,7 @@ function display_users(){
             <td>{$user_id}</td>
             <td>{$username}</td>
             <td>{$email}</td>
-            <td><a href="../../resources/templates/back/delete_user.php?id={$row['user_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+            <td><a href="../../resources/templates/back/delete_user.php?id={$row['user_id']}" class="btn btn-danger image_container"><span class="glyphicon glyphicon-remove"></span> </a></td>
         </tr>
 
 
@@ -483,7 +483,7 @@ function get_reports(){
             <td>{$row['product_title']}</td>
             
             
-             <td><a href="../../resources/templates/back/delete_reports.php?id={$row['report_id']}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </a></td>
+             <td><a href="../../resources/templates/back/delete_reports.php?id={$row['report_id']}" class="btn btn-danger image_container"><span class="glyphicon glyphicon-remove"></span> </a></td>
         </tr>
 
 DELIMETER;
@@ -591,7 +591,7 @@ function get_slide_thumbnails(){
        <td> <span class="centered">{$row['slide_title']}</span></td>
        
        <td>
-       <a href="../../resources/templates/back/delete_slide.php?id={$row['slide_id']}" class="btn btn-danger">
+       <a href="../../resources/templates/back/delete_slide.php?id={$row['slide_id']}" class="btn btn-danger image_container">
        <span class="glyphicon glyphicon-remove">
        </span>
        </a>
