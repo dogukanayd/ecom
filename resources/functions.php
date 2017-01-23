@@ -132,6 +132,7 @@ echo $categories_links;
     }
 }
 
+
 function get_products_shop_page(){
     $query = query("SELECT * FROM products");
     confirm($query);
@@ -171,8 +172,9 @@ function login_user(){
         confirm($query);
 
        if( mysqli_num_rows($query) == 0){
-           set_message("Your password or username are wrong!");
+
            redirect("login.php");
+           set_message("Your password or username are wrong!");
        }
        else{
            $_SESSION['username'] = $username;
@@ -192,11 +194,13 @@ function send_message(){
 
         $result = mail($to,$subject,$message,$headers);
         if(!$result){
+
+            redirect("contact.php");
             set_message("Sorry we could not send your message");
-            redirect("contact.php");
         }else{
-            set_message("Your Message has been sent");
+
             redirect("contact.php");
+            set_message("Your Message has been sent");
         }
 
     }
@@ -292,9 +296,9 @@ function add_product(){
        $query = query("INSERT INTO products(product_title, product_category_id, product_price, product_description, short_desc,product_quantity, product_image) VALUES('{$product_title}', '{$product_category_id}', '{$product_price}', '{$product_description}', '{$short_desc}','{$product_quantity}', '{$product_image}')");
         $last_id = last_id();
        confirm($query);
-        set_message("New Product with id {$last_id} was Added");
-        redirect("index.php?products");
 
+        redirect("index.php?products");
+        set_message("New Product with id {$last_id} was Added");
 
 
 
@@ -357,9 +361,9 @@ function update_product(){
 
         $send_update_query = query($query);
         confirm($send_update_query);
-        set_message("Product has been updated");
-        redirect("index.php?products");
 
+        redirect("index.php?products");
+        set_message("Product has been updated");
 
 
 
@@ -382,7 +386,17 @@ function show_categories_in_admin(){
         <tr>
             <td>{$cat_id}</td>
             <td>{$cat_title}</td>
-            <td><a href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}" class="btn btn-danger image_container"><span class="glyphicon glyphicon-remove"></span> </a></td>
+            <td>
+            <a href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}" class="btn btn-danger image_container">
+            <span class="glyphicon glyphicon-remove"></span> 
+            </a>
+
+            <a href="index.php?" class="btn btn-primary">
+            <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            </span>
+             </a>
+            </td>
         </tr>
 
 
@@ -458,9 +472,9 @@ function add_user(){
       $query = query("INSERT INTO users(username, email, password) VALUES('{$username}', '{$email}', '{$password}')");
       confirm($query);
 
-      set_message("USER CREATED");
-      redirect("index.php?users");
 
+      redirect("index.php?users");
+        set_message("USER CREATED");
     }
 }
 
@@ -511,8 +525,10 @@ function add_slides(){
 
             $query = query("INSERT INTO slides(slide_title, slide_image) VALUES('{$slide_title}','{$slide_image}')");
             confirm($query);
-            set_message("Slide Added");
+
             redirect("index.php?slides");
+            set_message("Slide Added");
+
         }
 
 
@@ -558,7 +574,7 @@ DELIMETER;
 }
 
 function get_slides(){
-    $query = query("SELECT * FROM slides");
+    $query = query("SELECT * FROM slides ORDER BY slide_image DESC LIMIT 3");
     confirm($query);
 
     while($row = fetch_array($query)){
@@ -608,4 +624,37 @@ DELIMETER;
     }
 
 }
+/************* Admin Dashboard **************/
+function get_categories_num_rows(){
+    $query = query("SELECT COUNT(*) FROM categories ");
+    $row = fetch_array($query);
+    echo $row[0];
+}
+
+function get_order_num_rows(){
+    $query = query("SELECT COUNT(*) FROM orders");
+    $row = fetch_array($query);
+    echo $row[0];
+}
+
+function get_products_num_rows(){
+    $query = query("SELECT COUNT(*) FROM products");
+    $row = fetch_array($query);
+    echo $row[0];
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

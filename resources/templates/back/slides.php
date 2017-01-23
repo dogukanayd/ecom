@@ -7,7 +7,7 @@
     <div class="col-xs-3">
 
         <form action="" method="post" enctype="multipart/form-data">
-            <?php add_slides(); ?>
+            <?php add_slides();?>
 
             <div class="form-group">
 
@@ -23,7 +23,7 @@
 
             <div class="form-group">
 
-                <input type="submit" name="add_slide" class="btn btn-primary" value="Submit">
+                <input type="submit" name="add_slide" class="btn btn-primary" value="Add Slide">
 
             </div>
 
@@ -61,16 +61,7 @@
         <tbody>
         <?php get_slide_thumbnails(); ?>
 
-
-
-
-
-
-
-
-
-
-        </tbody>
+      </tbody>
     </table> <!--End of Table-->
 
 
